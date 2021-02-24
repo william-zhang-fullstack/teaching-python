@@ -1,0 +1,33 @@
+{% extends "common.html" %}
+{% block content %}
+    <div class="card editbar">
+        <form action="" method="post">
+            {{ form.csrf_token }}
+            {{ form.name.label }}
+            {{ form.name(size=32) }}
+            {{ form.quantity.label }}
+            {{ form.quantity(size=32) }}
+            <div class="icon-btn">
+                {{ form.submit() }}
+                <label for="submit"><i class="fas fa-plus add-icon on"></i></label>
+            </div>
+        </form>
+    </div>
+    {% for item in shopping_list %}
+        <div class="card">
+            <p>Need {{ item['quantity'] }} {{ item['name'] }}</p>
+            <form action="/grocery/update/{{ item['uid'] }}" method="post">
+                <div class="icon-btn">
+                    <input name="{{ item['uid'] }}" type="submit" value="">
+                    <label for="{{ item['uid'] }}"><i class="fas fa-pencil-alt update-icon on"></i></label>
+                </div>   
+            </form>
+            <form action="/grocery/delete/{{ item['uid'] }}" method="post">
+                <div class="icon-btn">
+                    <input name="{{ item['uid'] }}" type="submit" value="">
+                    <label for="{{ item['uid'] }}"><i class="fas fa-trash delete-icon on"></i></label>
+                </div>
+            </form>            
+        </div>
+    {% endfor %}
+{% endblock %}

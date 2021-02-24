@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Need {{ item['quantity'] }} {{ item['name'] }}</p>
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }}
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.quantity.label }}
+            {{ form.quantity(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
