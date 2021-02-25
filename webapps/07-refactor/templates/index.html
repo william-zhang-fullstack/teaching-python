@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ msg }}</h1>
+    <!-- Variables are truth-y -->
+    {% if blah %}
+        <h1>{{ blah }}</h1>
+    {% else %}
+        <h1>Blah not found</h1>
+    {% endif %}
+    {% for char in msg %}
+        <h1>{{ char }}</h1>
+    {% endfor %}
+</body>
+</html>
