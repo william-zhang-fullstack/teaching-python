@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- display data from a list of dicts -->
+    <!-- form/button tied to shopping list model's delete operation -->
+    {% for item in shopping_list %}
+        <form action="/grocery/delete/{{ loop.index0 }}" method="post">
+            <p>Need {{ item['quantity'] }} {{ item['name'] }}</p>
+            <input type="submit" value="x">
+        </form>
+    {% endfor %}
+    <!-- add new item form -->
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }}
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.quantity.label }}
+            {{ form.quantity(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
