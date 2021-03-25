@@ -1,4 +1,4 @@
-from flask import render_template, request  # pre-code for Flask webapps
+from flask import render_template, request, redirect, url_for  # pre-code for Flask webapps
 from app import app, shopping_list
 from app.forms import NewItemForm
 
